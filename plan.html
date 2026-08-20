@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TeamGrassroots · Build Plan</title>
+<meta name="description" content="How the TeamGrassroots intranet and order management system would be designed, built and handed over.">
+<style>
+:root{
+  --pitch:#0f3d2e; --pitch-2:#14523d; --lime:#8ac926;
+  --ink:#0d1420; --body:#39465a; --muted:#6b7889; --line:#e3e8ef; --line-2:#eef2f7;
+  --bg:#f5f7fa; --surface:#fff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--body);background:var(--bg);-webkit-font-smoothing:antialiased}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px 90px}
+h1,h2,h3{color:var(--ink);letter-spacing:-.015em;margin:0}
+h1{font-size:34px;line-height:1.15;font-weight:700}
+h2{font-size:23px;font-weight:650;margin:44px 0 14px}
+h3{font-size:17px;font-weight:650;margin:26px 0 8px}
+p{margin:0 0 14px}
+ul{margin:0 0 14px;padding-left:20px}
+li{margin-bottom:7px}
+a{color:var(--pitch-2)}
+strong{color:var(--ink)}
+
+.top{background:var(--pitch);color:#cfe3d8;padding:38px 0 34px;margin-bottom:8px}
+.top .wrap{padding-bottom:0}
+.crest{width:40px;height:40px;border-radius:10px;background:linear-gradient(150deg,var(--lime),#4d9e2a);
+  display:grid;place-items:center;color:#0b2b1f;font-weight:800;font-size:15px;margin-bottom:18px}
+.top h1{color:#fff}
+.top p{color:#9dbfae;margin:10px 0 0;font-size:16.5px;max-width:640px}
+.top .meta{margin-top:22px;font-size:13px;color:#7fa898;display:flex;gap:18px;flex-wrap:wrap}
+
+.lead{font-size:18px;color:var(--ink);line-height:1.6;margin:34px 0 0}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px 24px;margin:18px 0}
+.card h3{margin-top:0}
+.ms{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--lime);
+  border-radius:10px;padding:20px 24px;margin:16px 0}
+.ms .wk{font-size:11.5px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);font-weight:700}
+.ms h3{margin:5px 0 10px;font-size:19px}
+.ms .done{background:#f3f7f4;border-radius:8px;padding:11px 14px;font-size:14.5px;margin-top:14px;color:var(--ink)}
+.ms .done b{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:3px}
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:15px}
+th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);
+  padding:9px 12px;border-bottom:2px solid var(--line);font-weight:700}
+td{padding:11px 12px;border-bottom:1px solid var(--line-2);vertical-align:top}
+td:first-child{color:var(--ink);font-weight:600;width:34%}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:700px){.two{grid-template-columns:1fr}h1{font-size:27px}}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:20px;
+  background:#e3f6e9;color:#177245;letter-spacing:.02em}
+.tag.grey{background:#eef1f5;color:#5b6675}
+.q{border-left:3px solid var(--line);padding-left:16px;color:var(--muted);font-size:15px}
+.cta{background:var(--pitch);color:#fff;border-radius:12px;padding:26px 28px;margin:34px 0 0}
+.cta h3{color:#fff;margin-top:0}
+.cta p{color:#b6d2c4;margin-bottom:0}
+.cta a{color:var(--lime);font-weight:600}
+.foot{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+.pill{display:inline-block;background:#fff;border:1px solid var(--line);border-radius:20px;
+  padding:4px 12px;font-size:13px;margin:0 6px 6px 0;color:var(--ink)}
+@media print{
+  body{background:#fff;font-size:11.5pt}
+  .top{background:#0f3d2e !important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .card,.ms{break-inside:avoid;box-shadow:none}
+  .cta{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  h2{break-after:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="crest">TG</div>
+    <h1>TeamGrassroots<br>Intranet &amp; Order Management</h1>
+    <p>How the system would be designed, built and handed over, and what happens at each stage.</p>
+    <div class="meta">
+      <span>Prepared for Paul K.</span>
+      <span>Project #4516829</span>
+      <span>August 2026</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<p class="lead">You already know what this looks like, because you have clicked through it. This document covers the part you cannot see from a demo: how it gets built, in what order, what you get at the end of each stage, and what I need from you along the way.</p>
+
+<h2>1. What I understood from your brief</h2>
+
+<p>Your business runs on one long chain, and at the moment that chain lives across email, spreadsheets, folders and people's memories:</p>
+
+<p><span class="pill">Enquiry</span><span class="pill">Customer</span><span class="pill">Quote</span><span class="pill">Order</span><span class="pill">Artwork</span><span class="pill">Payment</span><span class="pill">Stock</span><span class="pill">Production</span><span class="pill">Dispatch</span><span class="pill">Completed</span><span class="pill">Reorder</span></p>
+
+<p>The cost of that is not dramatic, which is exactly why it persists. It is the club secretary chasing a proof that was emailed to somebody on annual leave. It is a kit going into production before the sponsor logo was signed off. It is nobody knowing whether the balance was paid until somebody opens the accounts package. It is a reorder next season starting from scratch because last year's size grid was on a laptop.</p>
+
+<p>Your brief asks for the fix in one sentence: open a customer or an order and immediately know who they are, what they ordered, what stage it is at, what happens next, who owns it, whether it is paid and whether it is done. Everything below is built around that sentence.</p>
+
+<p>The second thing your brief asks for, and the thing most systems get wrong, is <strong>simplicity</strong>. A system your staff avoid is worse than the spreadsheet they trust. That shapes decisions all the way through: fewer screens, fewer fields, and a dashboard that tells someone what to do today rather than presenting them with a menu.</p>
+
+<h2>2. What the prototype already proves</h2>
+
+<p>The demo is a working front end. Every screen in your brief is in it, from the club record with a secretary, treasurer and team manager sitting under one club, through to the ideas board in section 25.</p>
+
+<p>What it proves is that the shape is agreed before a line of the real system is written. You have seen the order board, the order page, the quote builder and the way a quote becomes an order. That means we are not designing from a document any more, we are building something you have already used. Most projects discover their disagreements in week six. Ours had them in the first evening.</p>
+
+<p>What it deliberately does not do is store anything. There is no database behind it, no logins, no file storage. That is the work described below.</p>
+
+<h2>3. The build, milestone by milestone</h2>
+
+<p>Four milestones, roughly a week each. Each one ends with something running on your own web address that your staff could genuinely use, not a progress report. You see it, you use it, then we move to the next one.</p>
+
+<div class="ms">
+  <div class="wk">Milestone 1 · Foundations and the customer record</div>
+  <h3>Your clubs, your contacts, your staff</h3>
+  <ul>
+    <li>The database: clubs, contacts, orders, quotes, products, artwork, invoices and users, structured so nothing has to be rebuilt later</li>
+    <li>Customer and club records with multiple contacts under one club, so a secretary, a treasurer and three team managers all sit against the same organisation</li>
+    <li>Billing and delivery addresses, customer type, account status, assigned account manager, and the date the customer came on board</li>
+    <li>Internal notes stamped with the staff member, date and time</li>
+    <li>Staff logins with permission levels: administrator, management, sales and admin, production</li>
+    <li>The audit trail switched on from the first day, recording who changed what and when</li>
+    <li>Your real customer list imported, so you are looking at your own clubs rather than my sample data</li>
+  </ul>
+  <div class="done"><b>Finished means</b> your staff can log in on your own web address, find any club, see every contact and every note against it, and nothing they type disappears.</div>
+</div>
+
+<div class="ms">
+  <div class="wk">Milestone 2 · Enquiry to order</div>
+  <h3>The part that makes you money</h3>
+  <ul>
+    <li>Enquiries logged against a customer with an owner, a follow-up date and a stage, from new enquiry through to won or lost</li>
+    <li>The quotation builder: products, SKUs, quantities, sizes, colours, personalisation, embroidery, print, badges and sponsor logos</li>
+    <li>Automatic calculations: subtotal, discount, delivery, VAT, total</li>
+    <li>Unique quote references in your format, for example TG-Q-000123</li>
+    <li>Professional branded quote PDFs, generated by the system and emailed to the club from within it</li>
+    <li>Convert to order in one click, with no rekeying, and the original quote kept attached to the order history</li>
+    <li>Order records with your configurable stages, and the Kanban board with drag and drop</li>
+  </ul>
+  <div class="done"><b>Finished means</b> you can take a phone enquiry, build a quote, email it as a branded PDF, convert it to an order when the club says yes, and watch it appear on the board.</div>
+</div>
+
+<div class="ms">
+  <div class="wk">Milestone 3 · Artwork, documents and money</div>
+  <h3>The chasing stops</h3>
+  <ul>
+    <li>Artwork upload against the order: club badges, sponsor logos, kit mock-ups, embroidery and print proofs</li>
+    <li>Approval states from artwork required, through proof created and sent to customer, to changes requested or approved, with who approved it and when recorded against the job</li>
+    <li>Document storage against customer and order: purchase orders, supplier invoices, delivery notes, spreadsheets, correspondence</li>
+    <li>Invoices generated from a quote or an order, with your own numbering</li>
+    <li>Payments recorded, outstanding balances visible, invoice states from draft through to paid or overdue</li>
+    <li>Tasks and follow-ups against customers, quotes, orders and production jobs</li>
+    <li>Staff dashboard: what needs attention today, overdue items, approvals outstanding</li>
+    <li>Global search across club, contact, email, order number, quote number, invoice number and SKU</li>
+  </ul>
+  <div class="done"><b>Finished means</b> no artwork lives in an inbox, every file sits against the job it belongs to, and anyone can see in one glance whether an order has been paid.</div>
+</div>
+
+<div class="ms">
+  <div class="wk">Milestone 4 · Production, margin and dispatch</div>
+  <h3>What the business is actually earning</h3>
+  <ul>
+    <li>Central product and SKU database: brand, category, supplier, supplier reference, buying price, selling price, VAT, colours, sizes and product image</li>
+    <li>Margin and gross profit calculated per order from selling price less product cost and decoration cost</li>
+    <li>Production jobs created from orders: embroidery, DTF printing, vinyl, heat press, engraving and trophies</li>
+    <li>A simplified production queue for the shop floor showing job, customer, requirement, deadline, priority and status, and nothing else</li>
+    <li>Dispatch: delivery address confirmed, number of parcels, courier and tracking number</li>
+    <li>Management dashboard: sales, quotes outstanding, conversion rate, live orders, orders awaiting payment or artwork, revenue, gross profit and margin, top customers, products and brands</li>
+    <li>The internal ideas and development area from section 25</li>
+  </ul>
+  <div class="done"><b>Finished means</b> you can open one screen and see what the month made, where the margin is, and which jobs are due on which machine.</div>
+</div>
+
+<h2>4. What sits outside the initial build, on purpose</h2>
+
+<p>The customer portal and the outside integrations are deliberately held back to a later phase. That is a recommendation, not a limitation:</p>
+
+<ul>
+  <li><strong>The customer portal</strong> lets clubs view and accept quotes, approve artwork with their name and the time recorded, track orders, download and pay invoices and reorder. It works best when it is shaped by a month of your staff actually using the core, because that month will change what you want clubs to see.</li>
+  <li><strong>Integrations</strong> with accounting software, DPD, an online payment provider, your shop and supplier feeds depend on accounts, credentials and approvals from third parties, which run to their timetable rather than mine.</li>
+</ul>
+
+<p>The important part: the database is designed for both from the first day. When you add the portal, clubs log into the same records your staff already use. Nothing is rebuilt, and nothing has to be migrated.</p>
+
+<h2>5. How we work while it is being built</h2>
+
+<table>
+  <tr><td>You see it as it happens</td><td>A private web address from the end of the first week that updates as I build. You are never waiting for a demo, and there is no month of silence.</td></tr>
+  <tr><td>Weekly, not monthly</td><td>Each milestone lands as something usable. If a direction is wrong, we find out in week two rather than week ten.</td></tr>
+  <tr><td>Everything in writing</td><td>Decisions, changes and agreements all live in the WorkStream, so neither of us relies on memory later.</td></tr>
+  <tr><td>Your data early</td><td>Your real clubs and products go in during the first milestone. Testing against real data finds the awkward cases that sample data hides.</td></tr>
+  <tr><td>One person</td><td>You deal directly with the person writing the code. Nothing gets lost between a salesperson, a project manager and a developer.</td></tr>
+</table>
+
+<h3>What I need from you</h3>
+<ul>
+  <li>Your customer list and product list in whatever form they exist today, during the first week</li>
+  <li>Your logo and a quote or invoice you send now, so the PDFs come out looking like yours</li>
+  <li>Feedback on each milestone within a couple of working days, which is what keeps the schedule honest</li>
+  <li>One person on your side who can make a decision when something needs deciding</li>
+</ul>
+
+<h2>6. What it is built on, in plain English</h2>
+
+<table>
+  <tr><td>The application</td><td>A standard, modern web app. It runs in the browser on your office PCs, on a tablet next to the embroidery machine, and on a phone. Nothing to install and no licences per seat.</td></tr>
+  <tr><td>The database</td><td>PostgreSQL, the same database used by most serious business systems. It holds your clubs, orders, prices and history, and it is backed up automatically.</td></tr>
+  <tr><td>Artwork storage</td><td>Proper cloud file storage, so badges and proofs stay put, stay linked to the job, and are not sitting in one person's inbox.</td></tr>
+  <tr><td>Documents</td><td>Quote and invoice PDFs generated by the system and emailed from it, on your branding.</td></tr>
+  <tr><td>Security</td><td>Individual logins, permission levels, and an audit trail recording who did what and when.</td></tr>
+  <tr><td>Ownership</td><td>The code and the database are yours, in your own accounts, from day one. No platform licence, no monthly fee to keep using your own system, and no lock-in to me.</td></tr>
+</table>
+
+<h2>7. Why this is the safer choice</h2>
+
+<p>You are comparing quotes, so here is the honest case, in the terms that actually matter in month six rather than week one.</p>
+
+<div class="two">
+  <div class="card">
+    <h3>You have already seen it work</h3>
+    <p>Most quotes ask you to imagine the result. You have clicked through yours. The design risk, which is where these projects usually go wrong, has already been taken off the table before you have committed to anything.</p>
+  </div>
+  <div class="card">
+    <h3>You own everything</h3>
+    <p>Code and database in your accounts from the first day. If you ever want another developer to take it on, they can. That is worth checking against every other quote you have, because it is where the real long-term cost sits.</p>
+  </div>
+  <div class="card">
+    <h3>Built for phase two from day one</h3>
+    <p>The customer portal and the integrations are designed for now and added later. A system that ignores them gets rebuilt when you want them, and you pay for the same work twice.</p>
+  </div>
+  <div class="card">
+    <h3>Nothing hidden until later</h3>
+    <p>The awkward parts, artwork storage, permissions, PDFs, the audit trail, are in the four milestones rather than quietly left out and priced as extras once you are committed.</p>
+  </div>
+</div>
+
+<h2>8. Risks, and how each one is handled</h2>
+
+<table>
+  <tr><td>Your existing data is messy</td><td>Usual, and expected. We import what is clean, flag what is not, and your team fixes the rest inside the new system rather than in a spreadsheet.</td></tr>
+  <tr><td>Different order types need different stages</td><td>Stages are configurable. Trophies and engraving do not have to follow the same path as a kit order.</td></tr>
+  <tr><td>Staff resist a new system</td><td>Why the dashboard leads with what needs doing today, and why the production screen shows six columns rather than sixty. It is designed to be quicker than the spreadsheet, not more thorough than it.</td></tr>
+  <tr><td>Something is wrong when you see it</td><td>You see each milestone as it is finished, so changes happen while they are cheap.</td></tr>
+  <tr><td>Scope grows</td><td>Anything outside the four milestones gets quoted separately rather than absorbed silently and delivered late.</td></tr>
+</table>
+
+<h2>9. After it is live</h2>
+<ul>
+  <li>Your real data loaded and checked</li>
+  <li>A short written guide for staff, covering the handful of things they do every day</li>
+  <li>A fix period after handover for anything that behaves differently in real use than in testing</li>
+  <li>The code and database handed to your accounts, with the ideas board already collecting what your team wants next</li>
+</ul>
+
+<h2>10. Still to confirm</h2>
+<p class="q">These shape the detail rather than the direction, and I have made sensible assumptions where I do not have your answer yet.</p>
+<ul>
+  <li>Roughly how many orders a month, and how many staff need a login</li>
+  <li>Where customers and products live today, and in what format</li>
+  <li>Which accounting package you use, and whether the shop is WooCommerce, Shopify or bespoke</li>
+  <li>Whether the stage list in section 5 is final, or whether trophies and engraving move differently from kit</li>
+  <li>Whether you take deposits, and anything unusual on VAT</li>
+  <li>Who signs off artwork internally before it goes to a club</li>
+</ul>
+
+<div class="cta">
+  <h3>The prototype</h3>
+  <p>Everything described here is already visible in the working demo: <a href="https://paulcustomerordering.vercel.app/">paulcustomerordering.vercel.app</a><br>
+  Drag an order across the board, open a job, or build a quote and convert it.</p>
+</div>
+
+<div class="foot">
+  Prepared by Hassan for TeamGrassroots · PeoplePerHour project #4516829 · August 2026<br>
+  This document describes scope, sequence and method. Commercial terms are covered separately in the WorkStream.
+</div>
+
+</div>
+</body>
+</html>
