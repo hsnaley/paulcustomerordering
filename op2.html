@@ -221,6 +221,52 @@ td{padding:9px 12px;font-size:13.5px}
 .bars .b .tr i{background:#1863DC}
 .tabs button.on{border-bottom-color:#1863DC}
 .hint{border-radius:3px}
+
+/* --- console detailing --- */
+.chrome{box-shadow:0 2px 0 #1863DC}
+.brandbar{padding:12px 20px 11px}
+
+/* KPI row reads as one instrument panel rather than four floating cards */
+.grid.g4{gap:0;background:#fff;border:1px solid var(--line);border-radius:4px;overflow:hidden}
+.grid.g4 .kpi{border:0;border-right:1px solid var(--line);border-radius:0;padding:14px 16px}
+.grid.g4 .kpi:last-child{border-right:0}
+.grid.g4 .kpi .lab{color:#5b6675}
+.grid.g4 .kpi .val{letter-spacing:-.02em}
+.grid.g4 .card{box-shadow:none}
+
+/* Tables: hairline console rows */
+tr.click:hover{background:#f0f5fd}
+td b{font-weight:650}
+.mono{letter-spacing:-.01em}
+
+/* The board encodes the pipeline: colour runs cold to warm to done */
+.board{gap:10px}
+.col .ch{border-top:3px solid var(--stage,#6b7889);padding-top:8px}
+.col .ch b{font-size:10.8px;text-transform:uppercase;letter-spacing:.05em;white-space:nowrap}
+.col .ch{min-height:42px}
+.col .ch .n{background:var(--stage,#6b7889);color:#fff;border:0;font-weight:700;min-width:20px;text-align:center}
+.col .cb{padding:7px}
+.ocard{border-left:3px solid var(--stage,#6b7889)}
+.ocard .ref{letter-spacing:0}
+.ocard .cn{margin:2px 0 4px}
+.ocard .bar{display:none}
+.board .col:nth-child(1){--stage:#6b7889}
+.board .col:nth-child(2){--stage:#e5484d}
+.board .col:nth-child(3){--stage:#f59e0b}
+.board .col:nth-child(4){--stage:#d97706}
+.board .col:nth-child(5){--stage:#7c5cff}
+.board .col:nth-child(6){--stage:#0d9488}
+.board .col:nth-child(7){--stage:#1863DC}
+.board .col:nth-child(8){--stage:#177245}
+
+/* Buttons: one solid action, everything else quiet */
+.btn{background:#fff;border-color:#ccd4de}
+.btn:hover{border-color:#1863DC;color:#1863DC;background:#fff}
+.phead .actions .btn.pri{box-shadow:0 1px 0 #0f4fb8}
+.card .hd h2{font-size:14px;text-transform:uppercase;letter-spacing:.06em}
+.card .hd .tag{text-transform:none;letter-spacing:0}
+.stagepath{font-size:11px}
+.feed li{padding:8px 0}
 @media(max-width:860px){.brandbar{flex-wrap:wrap}.brandbar .me{display:none}}
 </style>
 </head>
@@ -242,6 +288,7 @@ td{padding:9px 12px;font-size:13.5px}
   <div class="main"><div class="page" id="page"></div></div>
 </div>
 <div class="toast" id="toast"></div>
+<script>window.TG_HIDE = ["scope"];</script>
 <script src="app.js"></script>
 </body>
 </html>

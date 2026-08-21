@@ -253,7 +253,8 @@ const NAV = [
 
 function renderNav() {
   const cur = (location.hash || '#/dash').split('/')[1].split('?')[0];
-  $('#nav').innerHTML = NAV.map(n => n.g
+  const hide = window.TG_HIDE || [];
+  $('#nav').innerHTML = NAV.filter(n => n.g || !hide.includes(n.id)).map(n => n.g
     ? `<div class="lbl">${n.g}</div>`
     : `<a href="#/${n.id}" class="${cur === n.id ? 'on' : ''}"><span class="ico">${n.icon}</span>${n.label}${n.count ? `<span class="cnt">${n.count()}</span>` : ''}</a>`
   ).join('');
