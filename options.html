@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TeamGrassroots · Interface Options</title>
+<style>
+:root{--ink:#0d1420;--body:#3d4a5c;--muted:#6b7889;--line:#e3e8ef;--blue:#1863DC;--bg:#f5f7fa}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--body);background:var(--bg);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:46px 24px 80px}
+h1{font-size:29px;color:var(--ink);margin:0 0 8px;letter-spacing:-.015em}
+.sub{color:var(--muted);max-width:640px;margin:0 0 34px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.opt{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:0 1px 2px rgba(13,20,32,.05),0 14px 30px -20px rgba(13,20,32,.25);
+  display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s}
+.opt:hover{transform:translateY(-3px);box-shadow:0 1px 2px rgba(13,20,32,.05),0 20px 40px -20px rgba(13,20,32,.32)}
+.swatch{height:110px;display:flex}
+.swatch i{flex:1}
+.opt .bd{padding:18px 20px 20px;flex:1;display:flex;flex-direction:column}
+.opt h2{font-size:18px;color:var(--ink);margin:0 0 3px}
+.opt .tagline{font-size:12.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-bottom:10px}
+.opt p{font-size:14.5px;margin:0 0 16px}
+.opt a{margin-top:auto;display:block;text-align:center;background:var(--blue);color:#fff;
+  text-decoration:none;font-weight:600;font-size:14.5px;padding:11px;border-radius:9px}
+.opt a:hover{background:#1450b8}
+.opt.rec{border-color:var(--blue)}
+.pick{display:inline-block;background:#e7efff;color:#1450b8;font-size:11px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-bottom:8px}
+.note{margin-top:34px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px 22px;font-size:14.5px}
+.note b{color:var(--ink)}
+.foot{margin-top:26px;font-size:13px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Interface options</h1>
+  <p class="sub">Same system, same layout, three visual directions. Everything works in all three, so click into any of them and use it properly rather than judging a picture. Tell me which feels most like TeamGrassroots and that becomes the look for the build.</p>
+
+  <div class="grid">
+
+    <div class="opt">
+      <div class="swatch"><i style="background:#0f3d2e"></i><i style="background:#8ac926"></i><i style="background:#f5f7fa"></i></div>
+      <div class="bd">
+        <h2>Option 1</h2>
+        <div class="tagline">Pitch</div>
+        <p>The original you clicked through. Deep green and lime, a nod to grass and floodlights. Distinct from your website, and it reads as its own internal tool rather than an extension of the public brand.</p>
+        <a href="index.html">Open Option 1</a>
+      </div>
+    </div>
+
+    <div class="opt rec">
+      <div class="swatch"><i style="background:#0d1117"></i><i style="background:#1863DC"></i><i style="background:#f4f6f9"></i></div>
+      <div class="bd">
+        <span class="pick">My recommendation</span>
+        <h2>Option 2</h2>
+        <div class="tagline">Matchday</div>
+        <p>Your actual brand. Black and TeamGrassroots blue taken from your website, with your logo in the corner and tighter, squarer edges. Serious, high contrast, and it holds up on a screen in a busy unit.</p>
+        <a href="op2.html">Open Option 2</a>
+      </div>
+    </div>
+
+    <div class="opt">
+      <div class="swatch"><i style="background:#fff;box-shadow:inset 0 0 0 1px #e3e8ef"></i><i style="background:#1863DC"></i><i style="background:#f7f9fc"></i></div>
+      <div class="bd">
+        <h2>Option 3</h2>
+        <div class="tagline">Clubhouse</div>
+        <p>Lighter and roomier. White menu, softer corners, more breathing space and bigger numbers on the dashboards. Easiest on the eye for someone in it all day, and the friendliest for staff who are wary of new systems.</p>
+        <a href="op3.html">Open Option 3</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note">
+    <p style="margin-top:0"><b>Worth knowing before you choose.</b> This is a skin, not the structure. The screens, the order board, the stages and the way the system works are identical in all three, and the colours can still be changed later without any rebuilding. So pick on feel rather than trying to spot a functional difference.</p>
+    <p style="margin-bottom:0">I lean towards Option 2 because it puts your own brand on your staff's screens every day, and the blue picks up straight from teamgrassroots.co.uk. Option 3 is the one to choose if you want it to feel as gentle as possible for the staff who liked the spreadsheet.</p>
+  </div>
+
+  <div class="foot">Prepared for Paul K. · TeamGrassroots intranet and order management · August 2026</div>
+</div>
+</body>
+</html>
