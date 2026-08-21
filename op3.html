@@ -199,6 +199,10 @@ h1{font-size:27px}
 .side .who .avm{background:#1863DC}
 .side .who span{color:#8fa6c6}
 .top{background:rgba(255,255,255,.94);padding:13px 30px}
+.histnav{display:flex;gap:6px;margin-right:4px}
+.histnav button{width:34px;height:34px;border-radius:11px;border:1px solid var(--line);background:#fff;color:#4a5568;font-size:15px;cursor:pointer}
+.histnav button:hover{border-color:#1863DC;color:#1863DC}
+@media(min-width:1900px){.page{max-width:none;padding:34px 40px}.g21{grid-template-columns:3fr 1fr}}
 .search input{border-radius:12px;padding-top:10px;padding-bottom:10px}
 .page{padding:30px 32px}
 .phead{margin-bottom:22px}
@@ -244,6 +248,10 @@ td{padding:13px 20px}
   </aside>
   <div class="main">
     <header class="top">
+      <div class="histnav">
+        <button onclick="history.back()" title="Back">&#8592;</button>
+        <button onclick="history.forward()" title="Forward">&#8594;</button>
+      </div>
       <div class="search">
         <span class="mag">&#9906;</span>
         <input id="q" placeholder="Search club, contact, order, quote, invoice or SKU…" autocomplete="off">
