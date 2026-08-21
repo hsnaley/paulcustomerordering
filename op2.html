@@ -168,60 +168,78 @@ td b{color:var(--ink);font-weight:600}
 </style>
 
 <style>
-/* Option 2 · Matchday. Black and TeamGrassroots blue, tighter corners. */
-:root{--pitch:#0d1117;--pitch-2:#1863DC;--lime:#1863DC;--r:8px;--bg:#f4f6f9}
-.side{background:#0d1117;border-right:1px solid #1b2230}
-.brand{padding:20px 16px 16px;display:block}
-.tglogo{width:150px;display:block;margin-bottom:6px}
-.brand .sub{font-size:10.5px;color:#6b7b90;letter-spacing:.14em;text-transform:uppercase}
-.nav a{color:#a7b4c6;border-radius:6px}
-.nav a:hover{background:rgba(255,255,255,.06)}
-.nav a.on{background:#1863DC;color:#fff;font-weight:600}
-.nav a.on .cnt{background:rgba(255,255,255,.22);color:#fff}
-.nav .lbl{color:#5b6a7e}
-.side .who{border-top:1px solid #1b2230}
-.side .who .avm{background:#1863DC}
-.side .who span{color:#77869a}
-.btn{border-radius:6px}
+/* Option 2 - Matchday console.
+   Top chrome instead of a sidebar, so the full screen width is work surface.
+   Dense rows, hairline rules, tabular figures, black and TeamGrassroots blue. */
+:root{--pitch:#0f141b;--pitch-2:#1863DC;--lime:#1863DC;--bg:#eef1f5;--line:#dbe1e9;--r:4px}
+body{font-size:14.5px}
+.app{display:block}
+.chrome{position:sticky;top:0;z-index:30;background:#0f141b}
+.brandbar{display:flex;align-items:center;gap:20px;padding:11px 20px}
+.tglogo{width:128px;flex:none}
+.brandbar .search{flex:1;max-width:440px}
+.brandbar .search input{background:#1a2230;border-color:#28323f;color:#fff}
+.brandbar .search input:focus{background:#1f2836;border-color:#1863DC;box-shadow:0 0 0 3px rgba(24,99,220,.25)}
+.brandbar .search input::placeholder{color:#7c8a9c}
+.brandbar .search .mag{color:#7c8a9c}
+.brandbar .env{margin-left:auto;font-size:11px;color:#7c8a9c;border:1px solid #28323f;border-radius:3px;padding:4px 10px;letter-spacing:.04em}
+.brandbar .me{display:flex;align-items:center;gap:9px;color:#c6d2e0;font-size:12.5px}
+.brandbar .me .avm{width:26px;height:26px;border-radius:3px;background:#1863DC;color:#fff;display:grid;place-items:center;font-size:10.5px;font-weight:700}
+.brandbar .me span{display:block;font-size:10.5px;color:#7c8a9c;text-transform:uppercase;letter-spacing:.07em}
+.navrow{background:#0f141b;border-top:1px solid #1e2733;padding:0 12px;box-shadow:inset 0 -1px 0 #1e2733}
+.nav{display:flex;gap:0;overflow-x:auto;padding:0;flex:none}
+.nav .lbl{display:none}
+.nav a .ico{display:none}
+.nav a{border-radius:0;padding:11px 11px;color:#93a2b5;font-size:12.5px;border-bottom:2px solid transparent;white-space:nowrap;letter-spacing:.01em}
+.nav a:hover{background:transparent;color:#fff}
+.nav a.on{background:transparent;color:#fff;font-weight:650;border-bottom-color:#1863DC}
+.nav a .cnt{background:#1863DC;color:#fff;font-size:10.5px;padding:1px 6px}
+.nav a.on .cnt{background:#1863DC}
+.page{padding:20px;max-width:1680px}
+.phead{margin-bottom:14px}
+h1{font-size:20px}
+.card{border-radius:4px;box-shadow:none;border-color:#dbe1e9}
+.card .hd{padding:11px 14px}
+.card .bd{padding:14px}
+.kpi{padding:12px 14px;border-top:2px solid #1863DC;border-radius:0 0 4px 4px}
+.kpi .lab{font-size:10.5px;letter-spacing:.1em;font-weight:700}
+.kpi .val{font-size:27px;font-variant-numeric:tabular-nums}
+th{padding:8px 12px;background:#f3f5f8;font-size:10.5px;letter-spacing:.08em}
+td{padding:9px 12px;font-size:13.5px}
+.btn{border-radius:3px;font-size:12.5px;padding:7px 12px}
 .btn.pri{background:#1863DC;border-color:#1863DC}
-.btn.pri:hover{background:#1450b8}
-.card{border-radius:8px}
-.av{background:#1863DC}
-.ocard{border-radius:7px}
-.ocard .bar i{background:#1863DC}
-.col{border-radius:8px}
+.btn.pri:hover{background:#0f4fb8}
+.tag{border-radius:3px;font-size:11px;padding:2px 8px}
+.col{flex:1 1 0;min-width:162px;background:#e6eaf0;border-radius:4px;border-color:#d5dbe4;max-height:calc(100vh - 250px)}
+.col .ch{background:#e6eaf0;border-radius:4px 4px 0 0;padding:9px 11px}
+.ocard{border-radius:3px;padding:9px}
+.ocard .cn{font-size:13px}
+.av{border-radius:3px;background:#1863DC}
+.stagepath i{border-radius:3px}
 .stagepath i.now{background:#1863DC;border-color:#1863DC}
-.stagepath i.done{background:#e7efff;border-color:#c9dcff;color:#1450b8}
-.bars .b .tr i{background:linear-gradient(90deg,#1863DC,#69a1ff)}
+.stagepath i.done{background:#e7efff;border-color:#c9dcff;color:#0f4fb8}
+.bars .b .tr i{background:#1863DC}
 .tabs button.on{border-bottom-color:#1863DC}
-.t-green{background:#e3f6e9;color:#177245}
+.hint{border-radius:3px}
+@media(max-width:860px){.brandbar{flex-wrap:wrap}.brandbar .me{display:none}}
 </style>
 </head>
 <body>
 <div class="app">
-  <aside class="side">
-    <div class="brand">
+  <header class="chrome">
+    <div class="brandbar">
       <img class="tglogo" src="tg-logo.png" alt="TeamGrassroots">
-      <span class="sub">Intranet</span>
-    </div>
-    <nav class="nav" id="nav"></nav>
-    <div class="who">
-      <div class="avm">SH</div>
-      <div><b>Sam Hardy</b><span>Sales &amp; Admin</span></div>
-    </div>
-  </aside>
-  <div class="main">
-    <header class="top">
       <div class="search">
         <span class="mag">&#9906;</span>
         <input id="q" placeholder="Search club, contact, order, quote, invoice or SKU…" autocomplete="off">
         <div class="res" id="res"></div>
       </div>
-      <div class="spacer"></div>
-      <span class="chip">Prototype · sample data · nothing is saved</span>
-    </header>
-    <div class="page" id="page"></div>
-  </div>
+      <div class="env">Prototype · sample data</div>
+      <div class="me"><div class="avm">SH</div><div><b style="color:#fff">Sam Hardy</b><span>Sales &amp; Admin</span></div></div>
+    </div>
+    <div class="navrow"><nav class="nav" id="nav"></nav></div>
+  </header>
+  <div class="main"><div class="page" id="page"></div></div>
 </div>
 <div class="toast" id="toast"></div>
 <script src="app.js"></script>
